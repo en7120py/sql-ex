@@ -1,0 +1,14 @@
+22
+Для каждого значения скорости ПК, превышающего 600 МГц, определите среднюю цену ПК с такой же скоростью. Вывести: speed, средняя цена.
+SELECT pc.speed, AVG(price) AS Avg_price
+FROM PC
+where pc.speed>600
+GROUP BY pc.speed;
+
+21
+Найдите максимальную цену ПК, выпускаемых каждым производителем, у которого есть модели в таблице PC.
+Вывести: maker, максимальная цена.
+SELECT maker, max(pc.price)
+FROM Product INNER JOIN 
+ PC ON PC.model = Product.model
+group by maker
