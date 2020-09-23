@@ -1,3 +1,7 @@
+10 Найдите модели принтеров, имеющих самую высокую цену. Вывести: model, price
+Select model, price from printer
+where price = (select max(price) from printer)
+
 22
 Для каждого значения скорости ПК, превышающего 600 МГц, определите среднюю цену ПК с такой же скоростью. Вывести: speed, средняя цена.
 SELECT pc.speed, AVG(price) AS Avg_price
