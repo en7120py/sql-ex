@@ -19,6 +19,17 @@ from pc join product
 on pc.model=product.model
 where product.maker = 'A'
 
+18
+Найдите производителей самых дешевых цветных принтеров. Вывести: maker, price
+select distinct Product.maker, Printer.price
+from
+Product, Printer
+where Product.Model=Printer.Model
+and color='y'
+and price=(SELECT min(price) FROM Printer where color='y'
+and price>0)
+
+
 22
 Для каждого значения скорости ПК, превышающего 600 МГц, определите среднюю цену ПК с такой же скоростью. Вывести: speed, средняя цена.
 SELECT pc.speed, AVG(price) AS Avg_price
@@ -41,9 +52,3 @@ where class in (
 select name from ships
 union
 select ship from outcomes)
-/*select class from classes
-union
-select ship from outcomes where ship in (select class from classes)*/
-/*select name from ships where name in (select class from classes)
-union
-select ship from outcomes where ship in (select class from classes)*/
