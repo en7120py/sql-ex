@@ -1,6 +1,23 @@
-10 Найдите модели принтеров, имеющих самую высокую цену. Вывести: model, price
+10 
+Найдите модели принтеров, имеющих самую высокую цену. Вывести: model, price
 Select model, price from printer
 where price = (select max(price) from printer)
+
+11 
+Найдите среднюю скорость ПК.
+Select avg(speed) from pc
+
+12
+Найдите среднюю скорость ПК-блокнотов, цена которых превышает 1000 дол.
+Select avg(speed) from laptop
+where price > 1000
+
+13
+Найдите среднюю скорость ПК, выпущенных производителем A.
+Select avg(speed) 
+from pc join product 
+on pc.model=product.model
+where product.maker = 'A'
 
 22
 Для каждого значения скорости ПК, превышающего 600 МГц, определите среднюю цену ПК с такой же скоростью. Вывести: speed, средняя цена.
