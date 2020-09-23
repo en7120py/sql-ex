@@ -33,3 +33,17 @@ SELECT maker, max(pc.price)
 FROM Product INNER JOIN 
  PC ON PC.model = Product.model
 group by maker
+
+36
+Перечислите названия головных кораблей, имеющихся в базе данных (учесть корабли в Outcomes).
+select class from classes 
+where class in (
+select name from ships
+union
+select ship from outcomes)
+/*select class from classes
+union
+select ship from outcomes where ship in (select class from classes)*/
+/*select name from ships where name in (select class from classes)
+union
+select ship from outcomes where ship in (select class from classes)*/
