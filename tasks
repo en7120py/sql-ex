@@ -89,3 +89,16 @@ where class in (
 select name from ships
 union
 select ship from outcomes)
+
+44
+Найдите названия всех кораблей в базе данных, начинающихся с буквы R.
+Select name from ships where name like 'R%'
+union 
+select ship from outcomes where ship like 'R%'
+
+45
+Найдите названия всех кораблей в базе данных, состоящие из трех и более слов (например, King George V).
+Считать, что слова в названиях разделяются единичными пробелами, и нет концевых пробелов.
+Select name from ships where name like '% % %'
+union 
+select ship from outcomes where ship like '% % %'
