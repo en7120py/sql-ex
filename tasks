@@ -88,8 +88,8 @@ select distinct ships.name from classes, ships
 where classes.class=ships.class
 and classes.type='bb'
 and ships.launched is not null
-and ships.launched >= 1922
-and classes.displacement > 35000
+and ships.launched>=1922
+and classes.displacement>35000
 
 36
 Перечислите названия головных кораблей, имеющихся в базе данных (учесть корабли в Outcomes).
