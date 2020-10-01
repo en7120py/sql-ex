@@ -111,3 +111,13 @@ select ship from outcomes where ship like 'R%'
 Select name from ships where name like '% % %'
 union 
 select ship from outcomes where ship like '% % %'
+
+48
+Найдите классы кораблей, в которых хотя бы один корабль был потоплен в сражении.
+select class from ships where name in (
+Select ship from outcomes
+where result='sunk')
+union
+select class from classes where class in (
+Select ship from outcomes
+where result='sunk')
