@@ -36,6 +36,26 @@ product JOIN laptop
 ON product.model = laptop.model
 where hd>=10
 
+7
+Найдите номера моделей и цены всех имеющихся в продаже продуктов (любого типа) производителя B (латинская буква).
+select pc.model, pc.price
+from pc
+join product
+ON pc.model=product.model 
+WHERE maker = 'B'
+union
+select laptop.model, laptop.price
+from laptop
+join product
+ON laptop.model=product.model 
+WHERE maker = 'B'
+union
+select printer.model, printer.price
+from printer
+join product
+ON printer.model=product.model 
+WHERE maker = 'B'
+
 10 
 Найдите модели принтеров, имеющих самую высокую цену. Вывести: model, price
 Select model, price from printer
