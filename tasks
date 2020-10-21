@@ -77,6 +77,13 @@ from pc join product
 on pc.model=product.model
 where product.maker = 'A'
 
+14
+Найдите класс, имя и страну для кораблей из таблицы Ships, имеющих не менее 10 орудий.
+select classes.class, ships.name, classes.country
+from classes join ships 
+on classes.class=ships.class
+where classes.numGuns>9
+
 18
 Найдите производителей самых дешевых цветных принтеров. Вывести: maker, price
 select distinct Product.maker, Printer.price
