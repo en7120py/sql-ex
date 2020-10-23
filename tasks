@@ -84,6 +84,12 @@ from classes join ships
 on classes.class=ships.class
 where classes.numGuns>9
 
+15
+Найдите размеры жестких дисков, совпадающих у двух и более PC. Вывести: HD
+select hd from pc
+GROUP BY hd
+HAVING count(model)>1
+
 18
 Найдите производителей самых дешевых цветных принтеров. Вывести: maker, price
 select distinct Product.maker, Printer.price
