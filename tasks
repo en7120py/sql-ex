@@ -115,6 +115,12 @@ FROM Product INNER JOIN
  PC ON PC.model = Product.model
 group by maker
 
+33
+Укажите корабли, потопленные в сражениях в Северной Атлантике (North Atlantic). Вывод: ship.
+Select ship from outcomes 
+where battle ='North Atlantic'
+AND result = 'sunk'
+
 34
 По Вашингтонскому международному договору от начала 1922 г. запрещалось строить линейные корабли водоизмещением более 35 тыс.тонн. Укажите корабли, нарушившие этот договор (учитывать только корабли c известным годом спуска на воду). Вывести названия кораблей.
 select distinct ships.name from classes, ships
