@@ -100,6 +100,14 @@ and color='y'
 and price=(SELECT min(price) FROM Printer where color='y'
 and price>0)
 
+20
+Найдите производителей, выпускающих по меньшей мере три различных модели ПК. Вывести: Maker, число моделей ПК.
+SELECT maker, COUNT(model)
+FROM product
+WHERE type = 'pc'
+GROUP BY product.maker
+HAVING COUNT (DISTINCT model) >= 3
+
 21
 Найдите максимальную цену ПК, выпускаемых каждым производителем, у которого есть модели в таблице PC.
 Вывести: maker, максимальная цена.
@@ -114,6 +122,27 @@ SELECT pc.speed, AVG(price) AS Avg_price
 FROM PC
 where pc.speed>600
 GROUP BY pc.speed;
+
+23
+Найдите производителей, которые производили бы как ПК
+со скоростью не менее 750 МГц, так и ПК-блокноты со скоростью не менее 750 МГц.
+Вывести: Maker
+SELECT DISTINCT maker
+FROM product JOIN pc ON product.model=pc.model
+WHERE pc.speed>=750 
+AND maker IN
+(SELECT maker
+FROM product JOIN laptop ON product.model=laptop.model
+WHERE laptop.speed>=750)
+
+27
+Найдите средний размер диска ПК каждого из тех производителей, которые выпускают и принтеры. Вывести: maker, средний размер HD.
+SELECT product.maker, AVG(pc.hd)
+FROM pc, product WHERE product.model = pc.model
+AND product.maker IN ( SELECT DISTINCT maker
+FROM product
+WHERE product.type = 'printer')
+GROUP BY maker
 
 33
 Укажите корабли, потопленные в сражениях в Северной Атлантике (North Atlantic). Вывод: ship.
