@@ -189,6 +189,11 @@ select ship from outcomes)
 select ship, battle from outcomes
 where result = 'sunk'
 
+43
+Укажите сражения, которые произошли в годы, не совпадающие ни с одним из годов спуска кораблей на воду.
+select name from battles where DATEPART(yy, date) not in (select DATEPART(yy, date)  
+from battles join ships on DATEPART(yy, date)=launched)
+
 44
 Найдите названия всех кораблей в базе данных, начинающихся с буквы R.
 Select name from ships where name like 'R%'
