@@ -6,7 +6,7 @@ SELECT DISTINCT s.name
 FROM ships s
 JOIN classes c ON c.class = s.class
 WHERE UPPER(c.country) = 'JAPAN'
-and (numguns>=9 or numguns is NULL)
+AND (numguns>=9 or numguns is NULL)
 AND (c.bore < 19 OR c.bore IS NULL)
 AND (displacement <= 65000 OR c.displacement IS NULL)
 AND c.type = 'bb'
