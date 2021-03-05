@@ -10,3 +10,16 @@ AND (numguns>=9 or numguns is NULL)
 AND (c.bore < 19 OR c.bore IS NULL)
 AND (displacement <= 65000 OR c.displacement IS NULL)
 AND c.type = 'bb'
+
+
+61
+Посчитать остаток денежных средств на всех пунктах приема для базы данных с отчетностью не чаще одного раза в день.
+SELECT sum(i) FROM
+(SELECT point, sum(inc) as i FROM
+income_o
+GROUP BY point
+UNION
+SELECT point, -sum(out) as i FROM
+outcome_o
+GROUP BY point
+) as t
