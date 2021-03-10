@@ -11,6 +11,14 @@ AND (c.bore < 19 OR c.bore IS NULL)
 AND (displacement <= 65000 OR c.displacement IS NULL)
 AND c.type = 'bb'
 
+55
+Для каждого класса определите год, когда был спущен на воду первый корабль этого класса. 
+Если год спуска на воду головного корабля неизвестен, определите минимальный год спуска на воду кораблей этого класса. Вывести: класс, год.
+select classes.class,min(launched)
+from classes
+full join ships on classes.class=ships.class
+group by classes.class
+
 
 61
 Посчитать остаток денежных средств на всех пунктах приема для базы данных с отчетностью не чаще одного раза в день.
