@@ -38,3 +38,11 @@ SELECT point, -sum(out) as i FROM
 outcome_o
 GROUP BY point
 ) as t
+
+63
+Определить имена разных пассажиров, когда-либо летевших на одном и том же месте более одного раза.
+SELECT p.name
+FROM Passenger p JOIN Pass_in_trip pt
+ON p.ID_psg = pt.ID_psg
+GROUP BY p.name, p.id_psg
+HAVING COUNT(DISTINCT pt.place) < COUNT(*)
